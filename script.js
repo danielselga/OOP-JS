@@ -48,10 +48,18 @@ const Person = function (fristName, birthYear) {
 }
 
 const daniel = new Person('Daniel', 1997)
-
 console.log(daniel)
 
 // 1. New Object {} is created
 // 2. function is called, this keyword is the {}.
 // 3. {} linked to prototype
 // 4. function automatically return {}
+
+const gege = new Person('Gege', 1998)
+console.log(gege)
+
+const jay = 'jay'
+
+console.log(daniel instanceof Person)
+
+console.log(jay instanceof Person)
