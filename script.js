@@ -25,3 +25,18 @@
 
 // Polymorphism:
 // A child class can overwrite a method it inherithed the parent class.
+
+// JS OOP
+// Prototipal inheritance: The prototype contains methods (behavior) that are acessible to all objects linked to that prototype.
+
+// How do we create prototypes? And how we links objects to prototypes? How can we create new object without having classes?
+// 1 -> constructor functions
+// Technique to create objects from a function.
+// This is how built in Objects like Arrays, Maps or Sets.
+
+// 2 -> ES6 Classes
+// Modern alternative to constructor functions syntax.
+// "Syntatic sugar": behind the scenes, es6 classes work exactly like constructor functions.
+// ES5 Classes do NOT behave like classes in "Classical OOP".
+
+// 3 -> Object.create()
