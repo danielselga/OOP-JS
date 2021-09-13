@@ -40,3 +40,18 @@
 // ES5 Classes do NOT behave like classes in "Classical OOP".
 
 // 3 -> Object.create()
+// EASYEST and most straightforward way of linking an object to a prototype object.
+
+const Person = function (fristName, birthYear) {
+  this.fristName = fristName
+  this.birthYear = birthYear
+}
+
+const daniel = new Person('Daniel', 1997)
+
+console.log(daniel)
+
+// 1. New Object {} is created
+// 2. function is called, this keyword is the {}.
+// 3. {} linked to prototype
+// 4. function automatically return {}
