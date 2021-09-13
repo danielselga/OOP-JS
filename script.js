@@ -22,3 +22,6 @@
 // Inheritance:
 // Making all properties and methods of a certain class avaliable to a child class, forming a hierarchical relationship between classes. this allows us to...
 // reuse cummon logic and to model real-world relationship.
+
+// Polymorphism:
+// A child class can overwrite a method it inherithed the parent class.
