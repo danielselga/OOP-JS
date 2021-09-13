@@ -12,7 +12,9 @@
 
 // PRINCIPLES.
 
-// Abstraction: Ignoring or hidding details that's dont matter, allowing us to get an overview perspective of the thing  we're implementing...
+// Abstraction:
+// Ignoring or hidding details that's dont matter, allowing us to get an overview perspective of the thing  we're implementing...
 // intead of messing with details that don't really matter to our implementation.
 
-asdasdui
+// Encapsulation:
+// Keeping properties and methods private inside the class, so they are not acessible from outside the class. Some methods can be exposed as a Public Interface (API).
