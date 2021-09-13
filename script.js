@@ -43,8 +43,12 @@
 // EASYEST and most straightforward way of linking an object to a prototype object.
 
 const Person = function (fristName, birthYear) {
+  // Instance properties.
   this.fristName = fristName
   this.birthYear = birthYear
+  this.calcAge = () => {
+    console.log(2037 - this.birthYear)
+  } // Never do that.
 }
 
 const daniel = new Person('Daniel', 1997)
