@@ -18,3 +18,7 @@
 
 // Encapsulation:
 // Keeping properties and methods private inside the class, so they are not acessible from outside the class. Some methods can be exposed as a Public Interface (API).
+
+// Inheritance:
+// Making all properties and methods of a certain class avaliable to a child class, forming a hierarchical relationship between classes. this allows us to...
+// reuse cummon logic and to model real-world relationship.
