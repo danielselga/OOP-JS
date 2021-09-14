@@ -67,3 +67,16 @@ const jay = 'jay'
 console.log(daniel instanceof Person)
 
 console.log(jay instanceof Person)
+
+// PROTOTYPES
+console.log(Person.prototype)
+
+Person.prototype.calcAge = () => {
+  console.log(2037 - this.birthYear)
+}
+
+daniel.calcAge()
+gege.calcAge()
+
+console.log(daniel.__proto__)
+
