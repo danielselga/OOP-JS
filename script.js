@@ -94,3 +94,18 @@ console.log(daniel.hasOwnProperty('species')) // Cheking if is a Own property. /
 console.log(daniel.__proto__)
 console.log(daniel.__proto__.__proto__)
 console.log(daniel.__proto__.__proto__.__proto__)
+
+const arr = [3, 6, 6, 5, 6, 9, 9]
+console.log(arr.__proto__) // When we create a new array the array contains all the prototype methods beacuse array is a object.
+console.log(arr.__proto__ === Array.prototype) // Will return true.
+console.log(arr.__proto__.__proto__)
+
+Array.prototype.unique = function () {
+  return [...new Set(this)]
+}
+
+console.log(arr.unique())
+
+const h1 = document.querySelector('h1')
+
+console.dir(x => x + 1)
