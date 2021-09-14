@@ -90,3 +90,7 @@ console.log(daniel.species, gege.species) // Passing properties by prototype. Bu
 
 console.log(daniel.hasOwnProperty('fristName')) // Cheking if is a Own property. // True
 console.log(daniel.hasOwnProperty('species')) // Cheking if is a Own property. // False
+
+console.log(daniel.__proto__)
+console.log(daniel.__proto__.__proto__)
+console.log(daniel.__proto__.__proto__.__proto__)
