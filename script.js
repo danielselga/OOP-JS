@@ -79,4 +79,5 @@ daniel.calcAge()
 gege.calcAge()
 
 console.log(daniel.__proto__)
-
+console.log(daniel.__proto__ === Person.prototype)
+console.log(Person.prototype.isPrototypeOf(gege))
