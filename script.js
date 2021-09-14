@@ -109,3 +109,18 @@ console.log(arr.unique())
 const h1 = document.querySelector('h1')
 
 console.dir(x => x + 1)
+
+const Car = function (make, speed) {
+  this.speed = speed
+  this.make = make
+  this.accelerate = (speed) => {
+    console.log(`This ${this.make} is currently ${this.speed - speed} km/h`)
+  }
+  this.break = (freio) => {
+    console.log(`This ${this.make} is currently ${this.speed - freio} km/h`)
+  }
+}
+
+const bmw = new Car('BMW', 120)
+bmw.accelerate(50)
+bmw.break(80)
