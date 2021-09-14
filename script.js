@@ -79,5 +79,14 @@ daniel.calcAge()
 gege.calcAge()
 
 console.log(daniel.__proto__)
-console.log(daniel.__proto__ === Person.prototype)
-console.log(Person.prototype.isPrototypeOf(gege))
+console.log(daniel.__proto__ === Person.prototype) // True, o prototype de person é o prototype que vai ser usado nos objetos criados a partir dele e não o prototype dele.
+console.log(Person.prototype.isPrototypeOf(gege)) // True
+console.log(Person.prototype.isPrototypeOf(daniel)) // True
+console.log(Person.prototype.isPrototypeOf(Person)) // False
+
+// .prototypeOfLinkedObjects
+Person.prototype.species = 'Home Sapiens'
+console.log(daniel.species, gege.species) // Passing properties by prototype. But they arent object own properties.
+
+console.log(daniel.hasOwnProperty('fristName')) // Cheking if is a Own property. // True
+console.log(daniel.hasOwnProperty('species')) // Cheking if is a Own property. // False
