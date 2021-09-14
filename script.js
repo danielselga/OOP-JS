@@ -121,6 +121,11 @@ const Car = function (make, speed) {
   }
 }
 
+Car.prototype.stop = function () {
+  console.log(`This car is stoped! the currently velocity is ${this.speed * 0}`)
+}
+
 const bmw = new Car('BMW', 120)
 bmw.accelerate(50)
 bmw.break(80)
+bmw.stop()
