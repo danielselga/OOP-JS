@@ -188,6 +188,10 @@ georgia.greet()
 // 2. Classes are frist class citzens (can be passed in a function and return by a function)
 // 3. Classes are executed in strict Mode.
 
+// Getter and Setter
+
+// Getter e Setter são formas de interagir dinamicamente via função com uma classe. Setter so podem ter 1 parametro passado, e 1 paramentro que é agregado e não declarado como se fosse uma função. Já o getter é uma função que é chamada sem () e serve para interagir com o objeto, ele não possui parametro.
+
 const walter = new PersonCl('walter white', 1969)
 
 const account = {
