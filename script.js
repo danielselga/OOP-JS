@@ -110,6 +110,8 @@ const h1 = document.querySelector('h1')
 
 console.dir(x => x + 1)
 
+// Car challenger
+
 const Car = function (make, speed) {
   this.speed = speed
   this.make = make
@@ -129,3 +131,5 @@ const bmw = new Car('BMW', 120)
 bmw.accelerate(50)
 bmw.break(80)
 bmw.stop()
+
+// ES6 Syntax
