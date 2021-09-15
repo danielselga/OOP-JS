@@ -151,6 +151,25 @@ class PersonCl {
   greet() { // Will work exat the same way.
     console.log(`Hey my name is ${this.fristName}`)
   }
+
+  get age() {
+    console.log(2037 - this.birthYear)
+  }
+
+    // Set a property that already exist
+  set fullName(name) {
+    console.log(name)
+    if(name.includes(' ')) {
+      this._fullName = name
+    } else {
+      alert(`${name} is not a full name!`)
+    }
+  }
+
+  get fullName(){
+    return this._fullName
+  }
+
 }
 
 const georgia = new PersonCl('Georgia', 1998)
@@ -165,7 +184,28 @@ PersonCl.prototype.greet = function () {
 
 georgia.greet()
 
-
 // 1. Classes are NOT hoisted
 // 2. Classes are frist class citzens (can be passed in a function and return by a function)
 // 3. Classes are executed in strict Mode.
+
+const walter = new PersonCl('walter white', 1969)
+
+const account = {
+  owner: 'Daniel',
+  movements: [200, 300 , 599, 600, 1000],
+  
+  get latest () {
+    return this.movements.slice(-1).pop()
+  },
+
+  set latest(mov){
+    this.movements.push(mov)
+  } // Needs to have only one param.
+}
+
+console.log(account.latest) // Get are callede used as a property
+
+account.latest = 50
+
+console.log(account.movements)
+
