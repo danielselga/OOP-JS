@@ -133,3 +133,39 @@ bmw.break(80)
 bmw.stop()
 
 // ES6 Syntax
+
+// // Class expression
+// const PersonCl = class {}
+
+// Class declaration
+class PersonCl {
+  constructor(fristName, birthYear) {
+    this.fristName = fristName
+    this.birthYear = birthYear
+  }
+
+  calcAge() {
+    console.log(2037 - this.birthYear)
+  }
+
+  greet() { // Will work exat the same way.
+    console.log(`Hey my name is ${this.fristName}`)
+  }
+}
+
+const georgia = new PersonCl('Georgia', 1998)
+console.log(georgia)
+georgia.calcAge()
+
+console.log(georgia.__proto__ === PersonCl.prototype)
+
+PersonCl.prototype.greet = function () {
+  console.log(`Hey my name is ${this.fristName}`)
+}
+
+georgia.greet()
+
+
+// 1. Classes are NOT hoisted
+// 2. Classes are frist class citzens (can be passed in a function and return by a function)
+// 3. Classes are executed in strict Mode.
