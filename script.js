@@ -220,3 +220,15 @@ account.latest = 50
 
 console.log(account.movements)
 
+// Object create
+const  PersonProto = {
+  calcAge() {
+    console.log(2037 - this.birthYear)
+  }
+}
+
+const steven = Object.create(PersonProto) // Creating a new object wich inherit from the PersonProto.
+
+console.log(steven)
+
+console.log(steven.__proto__)
