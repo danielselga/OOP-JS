@@ -139,7 +139,7 @@ bmw.stop()
 
 // Class declaration
 class PersonCl {
-  constructor(fristName, birthYear) {
+  constructor(fristName, birthYear) { //Any class needs a constructor this will be the objects key: value.
     this.fristName = fristName
     this.birthYear = birthYear
   }
@@ -224,6 +224,11 @@ console.log(account.movements)
 const  PersonProto = {
   calcAge() {
     console.log(2037 - this.birthYear)
+  },
+
+  init(fristName, birthYear) {
+    this.fristName = fristName
+    this.birthYear = birthYear
   }
 }
 
@@ -232,3 +237,50 @@ const steven = Object.create(PersonProto) // Creating a new object wich inherit 
 console.log(steven)
 
 console.log(steven.__proto__)
+
+steven.name = 'Steven'
+steven.birthYear = 2002
+
+steven.calcAge()
+
+const zack = Object.create(PersonProto)
+
+zack.init('Zack', 2020)
+zack.calcAge()
+
+// Challenger #2 ES6 Class
+
+class CarCl {
+  constructor(make, speed) {
+    this.make = make
+    this.speed = speed
+  }
+
+  accelerate() {
+    this.speed += 10
+    console.log(`${this.make} is going at ${this.speed} Km/h`)
+  }
+
+  break() {
+    this.speed -= 5
+    console.log(`${this.make} is breaking at ${this.speed} Km/h`)
+  }
+
+  get speedUS() {
+    console.log(Math.trunc(this.speed / 1.6))
+  }
+
+  set speedUS (speed) {
+    this.speed = speed * 1.6 
+  }
+}
+
+const ford = new CarCl('Ford', 120)
+
+console.log(ford.speedUS)
+ford.accelerate()
+ford.break()
+ford.speedUS //Get
+ford.speedUS = 63 //Set
+console.log(ford.speed)
+
