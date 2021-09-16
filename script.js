@@ -170,6 +170,11 @@ class PersonCl {
     return this._fullName
   }
 
+  // Static Methods
+  static hey() {
+    console.log('Hey there!')
+  }
+
 }
 
 const georgia = new PersonCl('Georgia', 1998)
@@ -183,6 +188,8 @@ PersonCl.prototype.greet = function () {
 }
 
 georgia.greet()
+
+PersonCl.hey()
 
 // 1. Classes are NOT hoisted
 // 2. Classes are frist class citzens (can be passed in a function and return by a function)
