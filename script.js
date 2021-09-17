@@ -420,8 +420,8 @@ class Account {
   constructor(owner, currency, pin) {
     this.owner = owner
     this.currency = currency
-    this.pin = pin
-    this.movements = [] // Setando propriedades que não são passadas como parametros, elas vão funcionar como propriedades staticas de um objeto.
+    this._pin = pin
+    this._movements = [] // Setando propriedades que não são passadas como parametros, elas vão funcionar como propriedades staticas de um objeto.
     this.locale = navigator.language
 
     //Executing code
@@ -429,8 +429,12 @@ class Account {
   }
   
   // Public interface
+  get movements() {
+    console.log(this._movements)
+  }
+
   deposits(value) {
-    this.movements.push(value)
+    this._movements.push(value)
   }
 
   withdraw(value) {
@@ -456,7 +460,7 @@ console.log(ac1)
 ac1.deposits(500)
 ac1.deposits(300)
 ac1.withdraw(300)
-
 ac1.reqLoan(1000)
+ac1.movements
 
 
