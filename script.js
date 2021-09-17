@@ -42,73 +42,73 @@
 // 3 -> Object.create()
 // EASYEST and most straightforward way of linking an object to a prototype object.
 
-const Person = function (fristName, birthYear) {
-  // Instance properties.
-  this.fristName = fristName
-  this.birthYear = birthYear
-  this.calcAge = () => {
-    console.log(2037 - this.birthYear)
-  } // Never do that.
-}
+// const Person = function (fristName, birthYear) {
+//   // Instance properties.
+//   this.fristName = fristName
+//   this.birthYear = birthYear
+//   this.calcAge = () => {
+//     console.log(2037 - this.birthYear)
+//   } // Never do that.
+// }
 
-const daniel = new Person('Daniel', 1997)
-console.log(daniel)
+// const daniel = new Person('Daniel', 1997)
+// console.log(daniel)
 
 // 1. New Object {} is created
 // 2. function is called, this keyword is the {}.
 // 3. {} linked to prototype
 // 4. function automatically return {}
 
-const gege = new Person('Gege', 1998)
-console.log(gege)
+// const gege = new Person('Gege', 1998)
+// console.log(gege)
 
-const jay = 'jay'
+// const jay = 'jay'
 
-console.log(daniel instanceof Person)
+// console.log(daniel instanceof Person)
 
-console.log(jay instanceof Person)
+// console.log(jay instanceof Person)
 
 // PROTOTYPES
-console.log(Person.prototype)
+// console.log(Person.prototype)
 
-Person.prototype.calcAge = () => {
-  console.log(2037 - this.birthYear)
-}
+// Person.prototype.calcAge = () => {
+//   console.log(2037 - this.birthYear)
+// }
 
-daniel.calcAge()
-gege.calcAge()
+// daniel.calcAge()
+// // gege.calcAge()
 
-console.log(daniel.__proto__)
-console.log(daniel.__proto__ === Person.prototype) // True, o prototype de person é o prototype que vai ser usado nos objetos criados a partir dele e não o prototype dele.
-console.log(Person.prototype.isPrototypeOf(gege)) // True
-console.log(Person.prototype.isPrototypeOf(daniel)) // True
-console.log(Person.prototype.isPrototypeOf(Person)) // False
+// console.log(daniel.__proto__)
+// console.log(daniel.__proto__ === Person.prototype) // True, o prototype de person é o prototype que vai ser usado nos objetos criados a partir dele e não o prototype dele.
+// console.log(Person.prototype.isPrototypeOf(gege)) // True
+// console.log(Person.prototype.isPrototypeOf(daniel)) // True
+// console.log(Person.prototype.isPrototypeOf(Person)) // False
 
-// .prototypeOfLinkedObjects
-Person.prototype.species = 'Home Sapiens'
-console.log(daniel.species, gege.species) // Passing properties by prototype. But they arent object own properties.
+// // .prototypeOfLinkedObjects
+// Person.prototype.species = 'Home Sapiens'
+// console.log(daniel.species, gege.species) // Passing properties by prototype. But they arent object own properties.
 
-console.log(daniel.hasOwnProperty('fristName')) // Cheking if is a Own property. // True
-console.log(daniel.hasOwnProperty('species')) // Cheking if is a Own property. // False
+// console.log(daniel.hasOwnProperty('fristName')) // Cheking if is a Own property. // True
+// console.log(daniel.hasOwnProperty('species')) // Cheking if is a Own property. // False
 
-console.log(daniel.__proto__)
-console.log(daniel.__proto__.__proto__)
-console.log(daniel.__proto__.__proto__.__proto__)
+// console.log(daniel.__proto__)
+// console.log(daniel.__proto__.__proto__)
+// console.log(daniel.__proto__.__proto__.__proto__)
 
-const arr = [3, 6, 6, 5, 6, 9, 9]
-console.log(arr.__proto__) // When we create a new array the array contains all the prototype methods beacuse array is a object.
-console.log(arr.__proto__ === Array.prototype) // Will return true.
-console.log(arr.__proto__.__proto__)
+// const arr = [3, 6, 6, 5, 6, 9, 9]
+// console.log(arr.__proto__) // When we create a new array the array contains all the prototype methods beacuse array is a object.
+// console.log(arr.__proto__ === Array.prototype) // Will return true.
+// console.log(arr.__proto__.__proto__)
 
-Array.prototype.unique = function () {
-  return [...new Set(this)]
-}
+// Array.prototype.unique = function () {
+//   return [...new Set(this)]
+// }
 
-console.log(arr.unique())
+// console.log(arr.unique())
 
-const h1 = document.querySelector('h1')
+// const h1 = document.querySelector('h1')
 
-console.dir(x => x + 1)
+// console.dir(x => x + 1)
 
 // Car challenger
 
@@ -284,3 +284,42 @@ ford.speedUS //Get
 ford.speedUS = 63 //Set
 console.log(ford.speed)
 
+// Inheritance between "classes"
+
+const Person = function (fristName, birthYear) {
+  this.fristName = fristName
+  this.birthYear = birthYear
+}
+
+Person.prototype.calcAge = function () {
+  console.log(2021 - this.birthYear)
+}
+
+const Student = function(fristName, birthYear, course) {
+  Person.call(this, fristName, birthYear)
+  this.course = course
+}
+
+Student.prototype = Object.create(Person.prototype) //Object.create vai retornar um objeto vazio caso a gente declare o codigo a baixo em cima desse declarado ele iria sobreescrever o objeto.
+
+Student.prototype.introduce = function () {
+  const h1 = document.querySelector('h1')
+  console.log(h1)
+  console.log(`My name is ${this.fristName} i have ${2021 - this.birthYear} years, and i'm studing ${this.course} `)
+  return h1.textContent = `My name is ${this.fristName} i have ${2021 - this.birthYear} years, and i'm studing ${this.course} `
+}
+
+const daniel = new Student('Daniel', 1997, 'Computer Science')
+console.log(daniel)
+daniel.introduce()
+daniel.calcAge()
+
+console.log(daniel.__proto__)
+console.log(daniel.__proto__.__proto__)
+
+console.log(daniel instanceof Student)
+console.log(daniel instanceof Person)
+
+
+Student.prototype.constructor = Student
+console.dir(Student.prototype.constructor)
