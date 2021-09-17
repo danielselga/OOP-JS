@@ -139,7 +139,7 @@ bmw.stop()
 
 // Class declaration
 class PersonCl {
-  constructor(fristName, birthYear) { //Any class needs a constructor this will be the objects key: value.
+  constructor(fristName, birthYear) { //Any class needs a constructor this will be the objects key: value. Constructor is a reserved function
     this.fristName = fristName
     this.birthYear = birthYear
   }
@@ -284,7 +284,7 @@ ford.speedUS //Get
 ford.speedUS = 63 //Set
 console.log(ford.speed)
 
-// Inheritance between "classes"
+// Inheritance between "classes": Constructor
 
 const Person = function (fristName, birthYear) {
   this.fristName = fristName
@@ -331,7 +331,7 @@ const Carro = function(make, speed) {
   this.speed = speed
 }
 
-const CarroEletrico = function (make, speed, charge) { // Class Inheritance
+const CarroEletrico = function (make, speed, charge) { // Class Inheritance using construtor and call method
   Carro.call(this, make, speed)
   this.charge = charge
 }
@@ -354,3 +354,26 @@ twid.acelerar()
 twid.boost()
 twid.boost()
 
+
+// Inheritance between "classes": ES6
+class StudentCl extends PersonCl {
+  constructor(fristName, birthYear, course) {
+    //Allways need to happen frist!
+    super(fristName, birthYear) // Super is the constructor function of the parent class!!!111
+    this.course = course
+  }
+
+  introduce() {
+    console.log(`My name is ${this.fristName} i have ${2021 - this.birthYear} years, and i'm studing ${this.course} `)
+  }
+
+  calcAge() {
+    console.log(`I'm ${2037 - this.birthYear} and this method is overwriting the parent function`)
+  }
+}
+
+// const Danielzada = new StudentCl('Daniel Selga', 1997)
+const Danielzada = new StudentCl('Daniel Selga', 1997, 'Computer Science')
+
+Danielzada.introduce()
+Danielzada.calcAge()
