@@ -323,3 +323,34 @@ console.log(daniel instanceof Person)
 
 Student.prototype.constructor = Student
 console.dir(Student.prototype.constructor)
+
+
+// Challenge #3
+const Carro = function(make, speed) {
+  this.make = make
+  this.speed = speed
+}
+
+const CarroEletrico = function (make, speed, charge) { // Class Inheritance
+  Carro.call(this, make, speed)
+  this.charge = charge
+}
+
+CarroEletrico.prototype.acelerar = function () {
+  this.speed += 20
+  this.charge -= 1
+  console.log(`This ${this.make} is going to ${this.speed}, with a charge of ${this.charge}%`)
+}
+
+CarroEletrico.prototype.boost = function () {
+  this.speed *= 1.3
+  this.charge *= 0.75
+  console.log(`This ${this.make} is going to ${this.speed}, with a charge of ${this.charge}%`)
+}
+
+const twid = new CarroEletrico('Renaut', 100, 100)
+console.log(twid)
+twid.acelerar()
+twid.boost()
+twid.boost()
+
