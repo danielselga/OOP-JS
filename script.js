@@ -413,3 +413,50 @@ StudentProto.introduce =  function () {
 Zackinho.start('Zack', 2020, 'Treinamento de cães')
 Zackinho.introduce()
 Zackinho.calcAge()
+
+// Another Class Example.
+
+class Account {
+  constructor(owner, currency, pin) {
+    this.owner = owner
+    this.currency = currency
+    this.pin = pin
+    this.movements = [] // Setando propriedades que não são passadas como parametros, elas vão funcionar como propriedades staticas de um objeto.
+    this.locale = navigator.language
+
+    //Executing code
+    console.log(`Thanks for opening one account ${this.owner}`)
+  }
+  
+  // Public interface
+  deposits(value) {
+    this.movements.push(value)
+  }
+
+  withdraw(value) {
+    this.deposits(-value)
+  }
+
+  aproveLoan(value) {
+    return true
+  }
+
+  reqLoan(value) {
+    if(this.aproveLoan(value)) {
+      this.deposits = value
+      console.log(`Loan approved`)
+    }
+  }
+}
+
+const ac1 = new Account('Daniel', 'BRL', '1111')
+
+console.log(ac1)
+
+ac1.deposits(500)
+ac1.deposits(300)
+ac1.withdraw(300)
+
+ac1.reqLoan(1000)
+
+
