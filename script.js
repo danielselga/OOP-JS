@@ -377,3 +377,39 @@ const Danielzada = new StudentCl('Daniel Selga', 1997, 'Computer Science')
 
 Danielzada.introduce()
 Danielzada.calcAge()
+
+// Inheritance between "classes": Object.create()
+const PersonPrototype = {
+  calcAge() {
+    console.log(2037 - this.birthYear)
+  },
+
+  start(fristName, birthYear) {
+    this.fristName = fristName
+    this.birthYear = birthYear
+  }
+}
+
+// const Gegezada = Object.create(PersonProto)
+
+// // Gegezada.init('Georgia', 1998)
+
+// // console.log(Gegezada)
+// // Gegezada.calcAge()
+
+const StudentProto = Object.create(PersonPrototype)
+const Zackinho = Object.create(StudentProto)
+
+StudentProto.start = function (fristName, birthYear, course) {
+  PersonPrototype.start.call(this, fristName, birthYear)
+    this.course = course
+}
+
+StudentProto.introduce =  function () {
+  console.log(`My name is ${this.fristName} i have ${2021 - this.birthYear} years, and i'm studing ${this.course} `)
+}
+
+
+Zackinho.start('Zack', 2020, 'Treinamento de cães')
+Zackinho.introduce()
+Zackinho.calcAge()
