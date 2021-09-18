@@ -417,24 +417,38 @@ Zackinho.calcAge()
 // Another Class Example.
 
 class Account {
+  
+  // PUBLIC PLACE
+
+  // 1) Public Field(instances)
+  _locale = navigator.language
+  
+  // 2) Private fields (instance) Doesent work on prototypes.
+  #movements = [] // Only crome suports this hash.
+  #pin
+
+
   constructor(owner, currency, pin) {
+
+    // PRIVATE PLACE (INSIDE THE CONSTRUCTOR)
+
     this.owner = owner
     this.currency = currency
-    this._pin = pin
-    this._movements = [] // Setando propriedades que não são passadas como parametros, elas vão funcionar como propriedades staticas de um objeto.
-    this.locale = navigator.language
+    this.#pin = pin
+    // this._movements = [] // Setando propriedades que não são passadas como parametros, elas vão funcionar como propriedades staticas de um objeto.
+    // this.locale = navigator.language
 
     //Executing code
     console.log(`Thanks for opening one account ${this.owner}`)
   }
   
-  // Public interface
+  // Public interface // Public Methods
   get movements() {
-    console.log(this._movements)
+    console.log(this.#movements)
   }
 
   deposits(value) {
-    this._movements.push(value)
+    this.#movements.push(value)
   }
 
   withdraw(value) {
@@ -462,5 +476,6 @@ ac1.deposits(300)
 ac1.withdraw(300)
 ac1.reqLoan(1000)
 ac1.movements
-
+// console.log(ac1.#movements)
+// console.log(acc1.#pin)
 
